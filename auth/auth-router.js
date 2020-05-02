@@ -20,21 +20,15 @@ function generateToken(user) {
     return jwt.sign(payload, secret, options);
 }
 
-
-
 router.post('/register', (req, res) => {
     
     let user = req.body;
 
-  
     const rounds = process.env.HASH_ROUNDS || 8;
 
-
     const hash = bcrypt.hashSync(user.password, rounds);
-
   
     user.password = hash;
-
 
     Users.add(user)
         .then(saved => {
