@@ -1,13 +1,21 @@
-const router = require("express").Router();
 
-const Users = require("./userModel");
+const router = require('express').Router();
 
-router.get("/", (req, res) => {
-  Users.find()
+
+const Users = require('./users-model.js');
+
+
+router.get('/', (req, res) => {
+ 
+    console.log('token', req.decodedToken);
+
+    
+    Users.find()
     .then(users => {
-      res.status(200).json(users);
+        res.json({users});
     })
-    .catch(err => res.status(500).json(err));
+    .catch(err => res.send(err));
 });
+
 
 module.exports = router;
