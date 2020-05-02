@@ -12,8 +12,8 @@ describe('users model', function() {
         })
 
         it('adds new user to the database', async function() {
-            await Users.add({ username: 'gigi', password: "gigi123"});
-            await Users.add({ username: 'canelo', password: 'canelo123'});
+            await Users.add({ username: 'bilbo', password: "baggins"});
+            await Users.add({ username: 'harry', password: 'potter'});
 
             const users = await db('users');
 
